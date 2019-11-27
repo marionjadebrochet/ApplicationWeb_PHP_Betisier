@@ -7,21 +7,21 @@ class Ville {
 
   // CONSTRUCTEUR
   public function __construct($ville = array()){
-  	if (!empty($ville))
-  			//print_r ($valeurs);
-  			 $this->affecte($ville);
+    if (!empty($ville))
+    //print_r ($valeurs);
+    $this->affecte($ville);
   }
 
   public function affecte($donnees){
-       foreach ($donnees as $attribut => $valeur){
-           switch ($attribut){
-               case 'vil_num': $this->setVilnum($valeur);
-               break;
-               case 'vil_nom': $this->setVilnom($valeur);
-               break;
-           }
-       }
-   }
+    foreach ($donnees as $attribut => $valeur){
+      switch ($attribut){
+        case 'vil_num': $this->setVilnum($valeur);
+        break;
+        case 'vil_nom': $this->setVilnom($valeur);
+        break;
+      }
+    }
+  }
 
   // GETTERS
   public function getVilNum()
@@ -39,14 +39,12 @@ class Ville {
   public function setVilNum($num)
   {
     $this->num = $num;
-
     return $this;
   }
 
   public function setVilNom($nom)
   {
     $this->nom = $nom;
-
     return $this;
   }
 
