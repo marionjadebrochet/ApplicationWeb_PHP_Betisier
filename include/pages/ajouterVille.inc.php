@@ -18,7 +18,7 @@ if (empty($_POST["nom"])) { ?>
 
 	$ville = new Ville(array('vil_nom' => $_POST['nom']));
 	$villeManager->add($ville);
-	echo 'La ville' . $_POST["nom"] . 'a été ajoutée';
-	
+	echo 'La ville ' . $_POST["nom"] . 'a été ajoutée';
+
 }
 ?>
