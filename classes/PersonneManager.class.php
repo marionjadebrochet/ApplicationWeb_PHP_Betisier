@@ -120,6 +120,19 @@ class PersonneManager{
         $req = $this->db->prepare('delete from personne where per_num ='. $personne);
         $req->execute();
         }
+
+        public function isEtudiant($num) {
+          $sql = 'SELECT count(*) as etudiant FROM etudiant where per_num ='.$num;
+          $requete = $this->db->query($sql);
+          $res = $requete->fetch();
+
+          if ($res["etudiant"] == 1) {
+            return true;
+          } else {
+            return false;
+          }
+          $requete->closeCursor();
+        }
 }
 
 ?>
