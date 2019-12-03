@@ -1,6 +1,4 @@
-//NE FONCTIONNE PAS, je ne sais pas comment recupere le
-per_num_etu c'est à dire l'étudiant qui ajoute la citation
-//Je n'ai pas fait les restrictions du texte.
+//Je n'ai pas fait les restrictions du texte Full texte et tout et tout .
 
 <?php
 	$pdo=new Mypdo();
@@ -30,11 +28,12 @@ per_num_etu c'est à dire l'étudiant qui ajoute la citation
   </form>
 
 <?php } else {
-
+	$dateDep =  date("Y-m-d H:i:s");
 	$citation = new Citation (array('per_num' => $_POST['nom'],
+																	'per_num_etu' => $_SESSION['num'],
 								 									'cit_libelle' => $_POST['citation'],
 							 	 									'cit_date' => $_POST['date'],
-							   									'cit_date_depo' => $_POST['date'],));
+							   									'cit_date_depo' => $dateDep,));
 
   $citationManager->add($citation);
   echo "La citation a été ajouté";

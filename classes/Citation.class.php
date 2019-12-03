@@ -33,7 +33,7 @@ class Citation {
         case 'cit_date': $this->setCitDate($valeur); break;
         case 'cit_valide': $this->setCitVal($valeur); break;
         case 'cit_date_valide': $this->setCitDateVal($valeur); break;
-        case 'cit_date_depot': $this->setCitDateDep($valeur); break;
+        case 'cit_date_depo': $this->setCitDateDep($valeur); break;
         case 'cit_nom_enseignant': $this->setCitNomEnseignant($valeur); break;
         case 'cit_moyenne': $this->setCitMoyenne($valeur); break;
 
