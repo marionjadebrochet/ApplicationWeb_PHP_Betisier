@@ -14,7 +14,7 @@ class VilleManager{
   //fonction qui retourne un tableau d'objet ville.
   public function getList() {
     $listeVilles = array();
-    $sql = 'select vil_num, vil_nom from ville';
+    $sql = 'select vil_num, vil_nom from VILLE';
     $requete = $this->db->query($sql);
     while ($ville = $requete->fetch(PDO::FETCH_OBJ))
     $listeVilles[] = new Ville($ville);
@@ -23,6 +23,7 @@ class VilleManager{
   }
 
   //fonction qui retourne un tableau d'objet ville qui n'ont pas de département.
+  //Cette fonction est utile pour supprimerVille pour ne pas supprimer un département.
   public function getListVilleSansDep() {
     $listeVilles = array();
     $sql = 'select v.vil_num, v.vil_nom from ville v where vil_num not in (select vil_num from departement)';
@@ -35,7 +36,7 @@ class VilleManager{
 
   //fonction qui retourne le nombre de ville
   public function countVille() {
-    $sql = 'select count(vil_nom) as nbrVille from ville';
+    $sql = 'select count(vil_nom) as nbrVille FROM VILLE';
     $requete = $this->db->query($sql);
     $count = $requete->fetch();
     $requete->closeCursor();

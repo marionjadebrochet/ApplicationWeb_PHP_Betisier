@@ -40,5 +40,17 @@ class CitationManager{
             $requete->closeCursor();
             return $count['nbrCitation'];
       }
+
+    public function add($newCitation){
+    $req=$this->db->prepare(
+      'INSERT INTO citation (per_num, per_num_etu, cit_libelle, cit_date, cit_date_depo)
+        VALUES(:pernum,:pernum_etu,:libelle,:dat,:date_depo)');
+      $req->bindValue(':pernum',$newCitation->getPerNum(),PDO::PARAM_INT);
+      $req->bindValue(':pernum_etu',$newCitation->getPerNumEtu(),PDO::PARAM_INT );
+      $req->bindValue(':libelle',$newCitation->getCitLibelle(),PDO::PARAM_STR);
+      $req->bindValue(':dat',$newCitation->getCitDate(),PDO::PARAM_STR );
+      $req->bindValue(':date_depo',$newCitation->getCitDateDep(),PDO::PARAM_STR);
+      $req->execute();
+  }
 }
 ?>
