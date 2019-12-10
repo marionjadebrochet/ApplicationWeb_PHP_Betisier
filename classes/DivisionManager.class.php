@@ -15,7 +15,7 @@ class DivisionManager{
   public function getList() {
           $listeDivision = array();
 
-          $sql = 'select div_num, div_nom FROM DIVISION';
+          $sql = 'select div_num, div_nom from division';
 
           $requete = $this->db->query($sql);
 

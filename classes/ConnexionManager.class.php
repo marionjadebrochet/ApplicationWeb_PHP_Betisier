@@ -17,7 +17,7 @@ class ConnexionManager{
   }
 
   public function bonneConnexion($login,$pwd_crypte) {
-    $req=$this->db->prepare('SELECT per_num from personne where per_login=:login and per_pwd=:pwd');
+    $req=$this->db->prepare('select per_num from personne where per_login=:login and per_pwd=:pwd');
     $req->bindValue(':login',$login);
     $req->bindValue(':pwd',$pwd_crypte);
 

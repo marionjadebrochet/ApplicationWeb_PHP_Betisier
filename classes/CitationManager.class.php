@@ -77,12 +77,12 @@ class CitationManager{
   {
     $listeCitation = array();
 
-    $sql = 'SELECT c.cit_num, CONCAT(p.per_nom, p.per_prenom) as cit_nom_enseignant,
+    $sql = 'select c.cit_num, CONCAT(p.per_nom, p.per_prenom) as cit_nom_enseignant,
     c.cit_libelle as cit_libelle, c.cit_date as cit_date,
-    AVG(v.vot_valeur) as cit_moyenne FROM CITATION c LEFT JOIN PERSONNE p ON
-    p.per_num = c.per_num LEFT JOIN VOTE v ON c.cit_num = v.cit_num
-    WHERE cit_valide = 0
-    GROUP BY c.cit_num, p.per_nom, c.cit_libelle, c.cit_date';
+    AVG(v.vot_valeur) as cit_moyenne from citation c left join personne p on
+    p.per_num = c.per_num left join vote v on c.cit_num = v.cit_num
+    where cit_valide = 0
+    group by c.cit_num, p.per_nom, c.cit_libelle, c.cit_date';
 
     $requete = $this->db->query($sql);
     $requete->execute();
@@ -94,7 +94,7 @@ class CitationManager{
   }
 
   public function validerCitation($num) {
-    $sql = 'UPDATE citation SET cit_valide = 1 where cit_num = '.$num;
+    $sql = 'update citation set cit_valide = 1 where cit_num = '.$num;
     $requete = $this->db->query($sql);
     $requete->execute();
     $requete->closeCursor();

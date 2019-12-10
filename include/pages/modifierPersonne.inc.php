@@ -21,7 +21,7 @@ if (empty($_GET['numero'])) {
   </table>
   <br />
 <?php } else {
-  
+
   $iterator = 0;
   while ($listePersonnes[$iterator]->getPerNum() != $_GET['numero'] ) {
     $iterator = $iterator + 1;

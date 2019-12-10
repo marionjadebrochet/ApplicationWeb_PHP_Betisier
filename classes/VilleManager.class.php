@@ -14,7 +14,7 @@ class VilleManager{
   //fonction qui retourne un tableau d'objet ville.
   public function getList() {
     $listeVilles = array();
-    $sql = 'select vil_num, vil_nom from VILLE';
+    $sql = 'select vil_num, vil_nom from ville';
     $requete = $this->db->query($sql);
     while ($ville = $requete->fetch(PDO::FETCH_OBJ))
     $listeVilles[] = new Ville($ville);
@@ -36,16 +36,16 @@ class VilleManager{
 
   //fonction qui retourne le nombre de ville
   public function countVille() {
-    $sql = 'select count(vil_nom) as nbrVille FROM VILLE';
+    $sql = 'select count(vil_nom) as nbrville from ville';
     $requete = $this->db->query($sql);
     $count = $requete->fetch();
     $requete->closeCursor();
-    return $count['nbrVille'];
+    return $count['nbrville'];
   }
 
   //fonction pour ajouter une ville
   public function add($ville) {
-    $req = $this->db->prepare('INSERT INTO ville (vil_nom) VALUES (:nom)');
+    $req = $this->db->prepare('insert into ville (vil_nom) values (:nom)');
     $req->bindValue(':nom', $ville->getVilNom());
     $req->execute();
   }

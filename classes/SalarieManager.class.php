@@ -14,10 +14,10 @@ class SalarieManager{
   public function getListSal($num) {
           $listeSalarie = array();
 
-          $sql = 'SELECT per_prenom, per_mail, per_tel, sal_telprof, fon_libelle FROM PERSONNE p
-                  JOIN SALARIE s ON p.per_num=s.per_num
-                  JOIN FONCTION f ON s.fon_num=f.fon_num
-                  WHERE p.per_num = '. $num;
+          $sql = 'select per_prenom, per_mail, per_tel, sal_telprof, fon_libelle from personne p
+                  join salarie s on p.per_num=s.per_num
+                  join fonction f on s.fon_num=f.fon_num
+                  where p.per_num = '. $num;
           $requete = $this->db->query($sql);
           $requete->execute();
           while ($salarie = $requete->fetch(PDO::FETCH_OBJ))

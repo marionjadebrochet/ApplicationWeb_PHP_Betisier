@@ -15,7 +15,7 @@ class DepartementManager{
   public function getList() {
           $listeDepartement = array();
 
-          $sql = 'select dep_num, dep_nom FROM DEPARTEMENT';
+          $sql = 'select dep_num, dep_nom from departement';
 
           $requete = $this->db->query($sql);
 

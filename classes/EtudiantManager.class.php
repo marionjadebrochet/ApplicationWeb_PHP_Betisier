@@ -15,11 +15,11 @@ class EtudiantManager{
   public function getListEtu($num) {
           $listeEtudiant = array();
 
-            $sql = 'SELECT per_prenom, per_mail, per_tel, dep_nom, vil_nom FROM personne p
-                    JOIN etudiant e ON p.per_num=e.per_num
-                    JOIN departement d ON e.dep_num=d.dep_num
-                    JOIN ville v ON d.vil_num = v.vil_num
-                    WHERE p.per_num = '. $num;
+            $sql = 'select per_prenom, per_mail, per_tel, dep_nom, vil_nom from personne p
+                    join etudiant e on p.per_num=e.per_num
+                    join departement d on e.dep_num=d.dep_num
+                    join ville v on d.vil_num = v.vil_num
+                    where p.per_num = '. $num;
           $requete = $this->db->query($sql);
           $requete->execute();
           while ($etudiant = $requete->fetch(PDO::FETCH_OBJ))

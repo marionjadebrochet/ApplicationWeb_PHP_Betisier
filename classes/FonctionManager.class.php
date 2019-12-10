@@ -15,7 +15,7 @@ class FonctionManager{
   public function getList() {
           $listeFonction = array();
 
-          $sql = 'select fon_num, fon_libelle FROM FONCTION';
+          $sql = 'select fon_num, fon_libelle from fonction';
 
           $requete = $this->db->query($sql);
 

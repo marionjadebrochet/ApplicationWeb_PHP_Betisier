@@ -41,11 +41,11 @@ class PersonneManager{
 
     //fonction qui retourne le nombre de personne
     public function countPersonne() {
-            $sql = 'SELECT count(per_num) as nbrPersonne FROM PERSONNE';
+            $sql = 'select count(per_num) as nbrpersonne from PERSONNE';
             $requete = $this->db->query($sql);
             $count = $requete->fetch();
             $requete->closeCursor();
-            return $count['nbrPersonne'];
+            return $count['nbrpersonne'];
       }
 
     public function addPersonne($personne) {
