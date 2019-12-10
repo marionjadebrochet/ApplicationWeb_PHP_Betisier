@@ -2,12 +2,8 @@ a {
 	color:#222222;
 	text-decoration: none;
 }
-a:visited{
-	color:#222222;
-	text-decoration: none;
-}
 body{
-	background-color:#222222;
+	background-color:rgba(48,48,156,1);
 	color: black;
 	font-family: "Segoe UI", Verdana, serif;
 	font-size:12pt;
@@ -19,11 +15,10 @@ body{
 #header{
 	width:100%;
 	height:230px;
-	background-color:#222222;
+	background: rgb(2,12,78);
+	background: linear-gradient(180deg, rgba(2,12,78,1) 0%, rgba(48,48,156,1) 100%);
 	padding-bottom:20px;
-	box-shadow:0 0 20px #000000;
 	position:relative;
-	border-bottom:solid #444444 8px;
 }
 #entete{
 	width:1050px;
@@ -62,10 +57,8 @@ body{
 	position:absolute;
 	right:30px;
 	top:65%;
-	background-color:#AAAAAA;
+	background-color:lightgrey;
 	border-radius:10px;
-	border:4px solid #111111;
-	box-shadow:0 0 5px #000000 inset;
 	color:#222222;
 	font-size:18px;
 	text-align:center;
@@ -87,14 +80,16 @@ body{
 }
 #menu{
 	float : left;
-	width: 20%;
+	width: 15%;
 	min-height:355px;
 	margin-left: 3px;
 	color:#222222;
 	font-size:15px;
+	padding:30px 0;
 }
 #menu p{
 	font-weight:bold;
+	font-size:18px;
 }
 #menu a{
 	color:#222222;
@@ -106,7 +101,7 @@ body{
 }
 #menuInt{
 	margin-top: 2px;
-	margin-left: 50px;
+	margin-left: 10px;
 	min-height:367px;
 }
 #texte{
@@ -124,16 +119,17 @@ body{
 	width:100%;
 	height:50px;
 	padding-top:10px;
-	background-color:#222222;
-	border-top:solid #444444 8px;
+	background: linear-gradient(180deg, rgba(2,12,78,1) 0%, rgba(48,48,156,1) 100%);
 	padding-top:20px;
 	position:absolute;
 	bottom:0px;
-	box-shadow:0 -5px 5px #858585;
 	position:relative;
 	color:#CCCCCC;
 	font-size:12px;
 	text-align:center;
+}
+ul {
+	list-style: none;
 }
 label{
 	font-size:12pt;
@@ -146,14 +142,18 @@ table, th, td {
 	border: 1px solid black;
 	border-collapse: collapse;
 	margin: auto;
-
+}
+th, tr, td {
+	padding: 10px;
 }
 
 * a:hover{
 	text-decoration: underline;
 }
 #menu a:hover{
-	text-decoration: underline;
+	transition: 0.5s;
+	font-size:16px;
+	color:;
 	font-weight: bold;
 }
 .centreImage{
