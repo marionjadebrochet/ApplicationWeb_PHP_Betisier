@@ -1,5 +1,3 @@
-//ajouter gestion des dates
-
 <?php
 	$pdo=new Mypdo();
 	$citationManager = new CitationManager($pdo);
@@ -31,7 +29,6 @@
   </form>
 
 <?php } else {
-	echo $_POST['date1'].$_POST['date2'];
   $bonneCitations=$citationManager->getBonnesCitations($_POST['nom'],$_POST['date1'],$_POST['date2'],$_POST['basse'],$_POST['haute']);
 
   ?>

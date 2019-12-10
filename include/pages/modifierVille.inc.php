@@ -12,7 +12,10 @@ $villes=$villeManager->getList();
 if (empty($_GET['numero'])) {
   ?>
   <table>
-    <tr><th>Nom</th><th>Modifier</th></tr>
+    <tr>
+      <th>Nom</th>
+      <th>Modifier</th>
+    </tr>
     <?php foreach ($villes as $ville){ ?>
       <tr>
         <td><?php echo $ville->getVilNom();?></td>
