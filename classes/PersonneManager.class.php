@@ -15,7 +15,7 @@ class PersonneManager{
   public function getList() {
           $listePersonne = array();
 
-          $sql = 'select per_num, per_nom, per_prenom from personne';
+          $sql = 'select per_num, per_nom, per_prenom, per_tel, per_mail, per_login, per_pwd from personne';
           $requete = $this->db->query($sql);
           $requete->execute();
           while ($personne = $requete->fetch(PDO::FETCH_OBJ))
@@ -38,20 +38,7 @@ class PersonneManager{
             $requete->closeCursor();
             return $listeSalarie;
       }
-    //fonction qui retourne un tableau d'objet personne qui n'existe pas dans citation
-    //Cette fonction est utilisée pour ne pas supprimer une prsonne qui a une citation car sinon on doit aussi supprimer la citation.
-    public function getListPersonneSansCitation() {
-            $listePersonne1 = array();
 
-            $sql = 'select p.per_num, p.per_nom from personne p where per_num not in (select per_num from citation)';
-            $requete1 = $this->db->query($sql);
-            $requete1->execute();
-            while ($personne = $requete1->fetch(PDO::FETCH_OBJ))
-                $listePersonne1[] = new Personne($personne);
-
-            $requete1->closeCursor();
-            return $listePersonne1;
-      }
     //fonction qui retourne le nombre de personne
     public function countPersonne() {
             $sql = 'SELECT count(per_num) as nbrPersonne FROM PERSONNE';
@@ -60,22 +47,6 @@ class PersonneManager{
             $requete->closeCursor();
             return $count['nbrPersonne'];
       }
-
-    //fonction qui permet de voir si le numero sur lequel on clique est un salarié
-    public function estSalarie($numero) {
-            $sql = 'SELECT count(*) as nbrSalarie from SALARIE where per_num =' . $numero;
-            $requete = $this->db->query($sql);
-
-            $nbrSalarie = $requete->fetch();
-
-            if ($nbrSalarie['nbrSalarie']==0) {
-              return false;
-            } else {
-              return true;
-            }
-
-            $requete->closeCursor();
-    }
 
     public function addPersonne($personne) {
       $req = $this->db->prepare(
@@ -99,20 +70,24 @@ class PersonneManager{
     }
 
     public function isAdmin($num) {
-      $sql = 'SELECT count(*) as admin FROM personne where per_admin = 1 and per_num ='.$num;
+      $sql = 'select count(*) as admin from personne where per_admin = 1 and per_num ='.$num;
       $requete = $this->db->query($sql);
       $res = $requete->fetch();
 
-      if ($res["admin"] == 1) {
-        return true;
+      if ($res["admin"]) {
+        return 1;
       } else {
-        return false;
+        return 0;
       }
       $requete->closeCursor();
     }
 
       //fonction pour supprimer une ville
       public function delete($personne) {
+        $req = $this->db->prepare('delete from vote where per_num ='. $personne);
+        $req->execute();
+        $req = $this->db->prepare('delete from citation where per_num ='. $personne);
+        $req->execute();
         $req = $this->db->prepare('delete from salarie where per_num ='. $personne);
         $req->execute();
         $req = $this->db->prepare('delete from etudiant where per_num ='. $personne);
@@ -122,17 +97,30 @@ class PersonneManager{
         }
 
         public function isEtudiant($num) {
-          $sql = 'SELECT count(*) as etudiant FROM etudiant where per_num ='.$num;
+          $sql = 'select count(*) as etudiant from etudiant where per_num ='.$num;
           $requete = $this->db->query($sql);
           $res = $requete->fetch();
 
-          if ($res["etudiant"] == 1) {
-            return true;
+          if ($res["etudiant"]) {
+            return 1;
           } else {
-            return false;
+            return 0;
           }
           $requete->closeCursor();
         }
-}
 
+        //fonction qui permet de voir si le numero sur lequel on clique est un salarié
+        public function estSalarie($num) {
+                $sql = 'select count(*) as nbrSalarie from salarie where per_num =' . $num;
+                $requete = $this->db->query($sql);
+                $nbrSalarie = $requete->fetch();
+
+                if ($nbrSalarie['nbrSalarie']) {
+                  return 1;
+                } else {
+                  return 0;
+                }
+                $requete->closeCursor();
+        }
+}
 ?>

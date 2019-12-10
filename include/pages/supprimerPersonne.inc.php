@@ -1,7 +1,7 @@
 <?php
 $pdo=new Mypdo();
 $personneManager = new PersonneManager($pdo);
-$personnes=$personneManager->getListPersonneSansCitation();
+$personnes=$personneManager->getList();
 ?>
 
 <div class="titre">

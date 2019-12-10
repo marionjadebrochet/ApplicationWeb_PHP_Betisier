@@ -38,6 +38,10 @@ $personneManager = new PersonneManager($db);
 					<li><a href="index.php?page=9">Lister</a></li>
 					<li><a href="index.php?page=10">Ajouter</a></li>
 					<li><a href="index.php?page=11">Modifier</a></li>
+        <p><img class="icone" src="image/citation.gif"  alt="Citation"/>Citations</p>
+    			<ul>
+    				<li><a href="index.php?page=4">Ajouter</a></li>
+    			</ul>
 		<?php	} else { ?>
 			<p><img class = "icone" src="image/personne.png" alt="Personne"/>Personne</p>
 			<ul>
@@ -48,7 +52,6 @@ $personneManager = new PersonneManager($db);
 			</ul>
 			<p><img class="icone" src="image/citation.gif"  alt="Citation"/>Citations</p>
 			<ul>
-				<li><a href="index.php?page=4">Ajouter</a></li>
 				<li><a href="index.php?page=5">Lister</a></li>
 				<li><a href="index.php?page=6">Rechercher</a></li>
 				<li><a href="index.php?page=7">Valider</a></li>
