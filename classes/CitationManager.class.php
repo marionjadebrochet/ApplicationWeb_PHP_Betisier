@@ -61,9 +61,8 @@ class CitationManager{
     c.cit_date as cit_date, AVG(v.vot_valeur) as cit_moyenne FROM CITATION c
     LEFT JOIN PERSONNE p ON p.per_num = c.per_num
     LEFT JOIN VOTE v ON c.cit_num = v.cit_num
-    WHERE c.cit_valide = 1 AND c.cit_date_valide is not null AND c.per_num = '.$num.'
-    GROUP BY c.cit_num, p.per_nom, c.cit_libelle, c.cit_date
-    HAVING AVG(v.vot_valeur) > '.$basse.' AND AVG(v.vot_valeur) < '.$haute;
+    WHERE c.cit_valide = 1 AND c.cit_date_valide is not null AND c.per_num = '.$num
+    .' AND cit_date BETWEEN \''.$date1.'\' AND \''.$date2.'\' GROUP BY c.cit_num, p.per_nom, c.cit_libelle, c.cit_date HAVING AVG(v.vot_valeur) > '.$basse.' AND AVG(v.vot_valeur) < '.$haute;
 
     $requete = $this->db->query($sql);
     $requete->execute();

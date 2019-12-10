@@ -21,7 +21,7 @@
   <label for="date1">Compris entre le :</label>
   <input type="date" name="date1" value="2000-01-01">
   <label for="date2">et le :</label>
-  <input type="date" name="date2" value="2020-01-01" ><br><br>
+  <input type="date" name="date2" value="2020-01-01"><br><br>
   <label> Note comprise entre : </label>
   <input type="number" name="basse" value="0" min="0" max="19">
   <label> et : </label>
@@ -31,7 +31,7 @@
   </form>
 
 <?php } else {
-
+	echo $_POST['date1'].$_POST['date2'];
   $bonneCitations=$citationManager->getBonnesCitations($_POST['nom'],$_POST['date1'],$_POST['date2'],$_POST['basse'],$_POST['haute']);
 
   ?>
