@@ -42,6 +42,8 @@ if (empty($_GET['numero'])) {
     $ville = $_GET['numero'];
     $villeManager->update($ville, $nomVille);
     echo 'La ville a été modifiée';
+    echo "Redirection automatique dans 2 secondes";
+    header("Refresh:2; url=index.php?page=0");
 
   }
 }?>

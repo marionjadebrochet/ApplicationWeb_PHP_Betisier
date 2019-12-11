@@ -21,6 +21,8 @@ if (empty($_POST["nom"])) { ?>
 	$ville = new Ville(array('vil_nom' => $_POST['nom']));
 	$villeManager->add($ville);
 	echo 'La ville ' . $_POST["nom"] . '  a été ajoutée';
+	echo "Redirection automatique dans 2 secondes";
+	header("Refresh:2; url=index.php?page=0");
 
 }
 ?>

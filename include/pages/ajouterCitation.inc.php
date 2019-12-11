@@ -43,4 +43,6 @@
 
   $citationManager->add($citation);
   echo "La citation a été ajouté";
+	echo "Redirection automatique dans 2 secondes";
+	header("Refresh:2; url=index.php?page=0");
 } ?>

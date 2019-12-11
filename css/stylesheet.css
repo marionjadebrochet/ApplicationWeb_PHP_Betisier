@@ -3,7 +3,6 @@ a {
 	text-decoration: none;
 }
 body{
-	background-color:rgba(48,48,156,1);
 	color: black;
 	font-family: "Segoe UI", Verdana, serif;
 	font-size:12pt;
@@ -13,11 +12,11 @@ body{
 }
 #header{
 	width:100%;
-	height:230px;
-	background: rgb(2,12,78);
+	height:150px;
 	background: linear-gradient(180deg, rgba(2,12,78,1) 0%, rgba(48,48,156,1) 100%);
 	padding-bottom:20px;
 	position:relative;
+	border-radius:0px 0px 50px 50px;
 }
 #entete{
 	width:1050px;
@@ -50,9 +49,9 @@ body{
 }
 
 #corps {
+		background-color:white;
 	display: flex;
 	flex-direction: row;
-	background-color:#EDEDED;
 }
 
 #connect{
@@ -61,8 +60,8 @@ body{
 	position:absolute;
 	right:30px;
 	top:0%;
-	background-color:lightgrey;
-	border-radius:0px 0px 10px 10px;
+	background-color: white;
+	border-radius:0px 0px 20px 20px;
 	font-size:18px;
 	text-align:center;
 }
@@ -75,13 +74,13 @@ body{
 #menu{
 	width: 15%;
 	min-height:355px;
-	margin-left: 3px;
 	font-size:15px;
 	padding:30px 0;
 }
 #menu p{
+	text-align: center;
 	font-weight:bold;
-	font-size:18px;
+	font-size:24px;
 }
 #menu a{
 	color:#222222;
@@ -90,7 +89,6 @@ body{
 
 #menuInt{
 	margin-top: 2px;
-	margin-left: 10px;
 	min-height:367px;
 }
 #texte{
@@ -106,7 +104,7 @@ body{
 
 #footer{
 	width:100%;
-	height:50px;
+	min-height:300px;
 	padding-top:10px;
 	background: linear-gradient(180deg, rgba(2,12,78,1) 0%, rgba(48,48,156,1) 100%);
 	padding-top:20px;
@@ -136,16 +134,12 @@ th, tr, td {
 	padding: 10px;
 }
 
-ul {
-	list-style: none;
-}
-
 * a:hover{
 	text-decoration: underline;
 }
 #menu a:hover{
 	transition: 0.5s;
-	font-size:20px;
+	font-size:24px;
 	font-weight: bold;
 }
 
@@ -179,4 +173,19 @@ form {
 .radio {
 	width: 200px;
 	flex:4;
+}
+#menu {
+	border-right:1px solid black;
+}
+ul {
+	padding: 0;
+  margin: 0;
+	list-style: none;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+li {
+	padding: 2px;
+	font-size:20px;
 }
