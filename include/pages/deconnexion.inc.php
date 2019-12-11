@@ -1,5 +1,5 @@
+<h1>Déconnexion</h1>
 <?php
-
   echo "Vous allez être déconnecté <br>";
   echo "Vous allez être redirigé dans 2 secondes";
   $_SESSION['nom'] = null;

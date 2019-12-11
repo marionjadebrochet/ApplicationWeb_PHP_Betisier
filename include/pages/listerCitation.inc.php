@@ -32,7 +32,7 @@ if(empty($_GET['numero']) && empty($_POST['note'])) {
 			<td><?php echo $citation->getCitLibelle();?></td>
 			<td><?php echo getFrenchDate($citation->getCitDate());?></td>
 			<td><?php echo $citation->getCitMoyenne();?></td>
-			<?php if(!empty($_SESSION['num']) && $personneManager->isEtudiant($_SESSION['num'])) { ?>
+			<?php if(!empty($_SESSION['num']) && $_SESSION['estEtu']) { ?>
 				<td><?php if($citationManager->votedBy($_SESSION['num'],$citation->getCitNum()) == 0) { ?>
 						<a href="index.php?page=5&numero=<?php echo $citation->getCitNum();?>"><img src="image/modifier.png"></a>
 			<?php } else { ?>
@@ -59,6 +59,6 @@ if(empty($_GET['numero']) && empty($_POST['note'])) {
 
 	$resultat = $citationManager->vote($_SESSION['num'], $_SESSION['numero'],$_POST['note']);
 
-	echo "La citation a été notée"
+	echo "La citation a été notée";
 			}?>
 	<?php } ?>

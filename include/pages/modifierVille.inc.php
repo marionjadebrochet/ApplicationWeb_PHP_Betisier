@@ -29,8 +29,10 @@ if (empty($_GET['numero'])) {
       if (empty($_POST['nom'])) { ?>
 
       <form action="#" method="post">
-        <label for="Nom">Nom :</label>
-        <input type="text" name="nom" id="nom" /> <br>
+        <div class="row">
+          <label for="Nom">Nom :</label>
+          <input type="text" name="nom" id="nom" />
+        </div>
         <input type="submit" name="submit" value="Valider" />
       </form>
 

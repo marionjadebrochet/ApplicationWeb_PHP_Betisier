@@ -17,24 +17,44 @@ if (empty($_POST["nom"]) && empty($_POST["dep"]) && empty($_POST['annee']) && em
 	<h1>Ajouter une personne</h1>
 
 	<form action="#" method="post">
-		<label for="Nom">Nom :</label>
-		<input type="text" name="nom" id="Nom" /> <br>
-		<label for="Prenom">Prenom :</label>
-		<input type="text" name="prenom" id="Prenom" /> <br>
-		<label for="Telephone">Téléphone :</label>
-		<input type="tel" name="tel" id="Telephone" /> <br>
-		<label for="Mail">Mail :</label>
-		<input type="email" name="mail" id="Mail" /> <br>
-		<label for="Login">Login :</label>
-		<input type="text" name="login" id="Login" /> <br>
-		<label for="Motdepasse">Mot de passe :</label>
-		<input type="password" name="mdp" id="Motdepasse" /> <br>
-		<label>Catégorie :</label>
-		<input type="radio" name="categorie" id="Etudiant" value="etudiant"/>
-		<label for='Etudiant'>Etudiant</label>
-		<input type="radio" name="categorie" id="Salarie" value="salarie"/>
-		<label for='Salarie'>Salarié</label><br>
-		<input type="submit" name="submit" value="Valider" />
+		<div class="row">
+			<label class="auto" for="Nom">Nom :</label>
+			<input class="auto" type="text" name="nom" id="Nom" />
+		</div>
+		<div class="row">
+			<label class="auto" for="Prenom">Prenom :</label>
+			<input class="auto" type="text" name="prenom" id="Prenom" />
+		</div>
+		<div class="row">
+			<label class="auto" for="Telephone">Téléphone :</label>
+			<input class="auto" type="tel" name="tel" id="Telephone" />
+		</div>
+		<div class="row">
+			<label class="auto" for="Mail">Mail :</label>
+			<input class="auto" type="email" name="mail" id="Mail" />
+		</div>
+		<div class="row">
+			<label class="auto" for="Login">Login :</label>
+			<input class="auto" type="text" name="login" id="Login" />
+		</div>
+		<div class="row">
+			<label class="auto" for="Motdepasse">Mot de passe :</label>
+			<input class="auto" type="password" name="mdp" id="Motdepasse" />
+		</div>
+		<div class="row">
+			<label>Catégorie :</label>
+		</div>
+		<div class="row">
+			<div class="radio">
+				<input type="radio" name="categorie" id="Etudiant" value="etudiant"/>
+				<label  for='Etudiant'>Etudiant</label>
+			</div>
+			<div class="radio">
+				<input type="radio" name="categorie" id="Salarie" value="salarie"/>
+				<label class="radio" for='Salarie'>Salarié</label>
+			</div>
+		</div>
+			<input type="submit" name="submit" value="Valider" />
 	</form>
 <?php }
 
@@ -49,18 +69,22 @@ if(!empty($_POST["nom"]) && $_POST['categorie'] == "etudiant") {
 	<h1>Ajouter un étudiant</h1>
 
 	<form action="#" method="post">
-		<label for="annee">Année :</label>
-		<select id="annee" name="annee">
-			<?php foreach ($divisions as $division) { ?>
-				<option value="<?php echo $division->getDivNum();?>"><?php echo $division->getDivNom(); ?></option>
-			<?php } ?>
-		</select> <br>
-		<label for="departement">Département : </label>
-		<select id="dep" name="dep">
-			<?php foreach ($departements as $departement) { ?>
-				<option value="<?php echo $departement->getDepNum();?>"><?php echo $departement->getDepNom(); ?></option>
-			<?php } ?>
-		</select> <br>
+		<div class="row">
+			<label class="auto"for="annee">Année :</label>
+			<select class="auto"id="annee" name="annee">
+				<?php foreach ($divisions as $division) { ?>
+					<option value="<?php echo $division->getDivNum();?>"><?php echo $division->getDivNom(); ?></option>
+				<?php } ?>
+			</select>
+		</div>
+		<div class="row">
+			<label class="auto"for="departement">Département : </label>
+			<select class="auto"id="dep" name="dep">
+				<?php foreach ($departements as $departement) { ?>
+					<option value="<?php echo $departement->getDepNum();?>"><?php echo $departement->getDepNom(); ?></option>
+				<?php } ?>
+			</select>
+		</div>
 		<input type="submit" value="Valider">
 	</form>
 
@@ -93,16 +117,18 @@ if (!empty($_POST["nom"]) && $_POST['categorie'] == "salarie") {
 	<h1>Ajouter une salarié</h1>
 
 	<form action="#" method="post">
-		<label for="Nom">Téléphone professionnel :</label>
-		<input type="tel" name="tel" id="tel" /> <br>
-		<br>
-		<label for="Nom">Fonction :</label>
-		<select id="fon" name="fon">
+		<div class="row">
+			<label class="auto"for="Nom">Téléphone professionnel :</label>
+			<input class="auto"type="tel" name="tel" id="tel" />
+		</div>
+		<div class="row">
+		<label class="auto"for="Nom">Fonction :</label>
+		<select class="auto"id="fon" name="fon">
 			<?php foreach ($fonctions as $fonction) {?>
 				<option value="<?php echo $fonction->getFonNum() ?>"><?php echo $fonction->getFonLib(); ?></option>
 			<?php }?>
 		</select>
-		<br>
+		</div>
 		<input type="submit" name="submit" value="Valider" />
 	</form>
 <?php	}

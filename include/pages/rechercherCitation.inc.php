@@ -10,21 +10,31 @@
 <h1>Rechercher une citation</h1>
 <?php  if(empty($_POST['nom']) && empty($_POST['citation']) && empty($_POST['date'])) {?>
   <form class="" action="#" method="post">
-  <label>Enseignant : </label>
-  <select name="nom">
-    <?php foreach ($personnes as $personne) { ?>
-      <option value="<?php echo $personne->getPerNum();?>"><?php echo $personne->getPerNom(); ?></option>
-    <?php } ?>
-  </select><br><br>
-  <label for="date1">Compris entre le :</label>
-  <input type="date" name="date1" value="2000-01-01">
-  <label for="date2">et le :</label>
-  <input type="date" name="date2" value="2020-01-01"><br><br>
-  <label> Note comprise entre : </label>
-  <input type="number" name="basse" value="0" min="0" max="19">
-  <label> et : </label>
-  <input type="number" name="haute" value="20" min="1" max="20">
-  <br><br>
+	<div class="row">
+	  <label class="auto">Enseignant : </label>
+	  <select class="auto" name="nom">
+	    <?php foreach ($personnes as $personne) { ?>
+	      <option value="<?php echo $personne->getPerNum();?>"><?php echo $personne->getPerNom(); ?></option>
+	    <?php } ?>
+	  </select>
+	</div>
+	<div class="row">
+	  <label class="auto" for="date1">Compris entre le :</label>
+	  <input class="auto" type="date" name="date1" value="2000-01-01">
+	</div>
+	<div class="row">
+	  <label class="auto" for="date2">et le :</label>
+	  <input class="auto" type="date" name="date2" value="2020-01-01">
+	</div>
+	<div class="row">
+	  <label class="auto" > Note comprise entre : </label>
+	  <input class="auto" type="number" name="basse" value="0" min="0" max="19">
+	</div>
+	<div class="row">
+	  <label class="auto"> et le : </label>
+	  <input class="auto" type="number" name="haute" value="20" min="1" max="20">
+	</div>
+
   <button type="submit" name="button">Rechercher</button>
   </form>
 

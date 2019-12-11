@@ -14,16 +14,22 @@
 <?php if (empty($_POST["citation"])){ ?>
 
   <form class="" action="#" method="post">
-    <label>Enseignant : </label>
-    <select name="nom">
+		<div class="row">
+    <label class="auto">Enseignant : </label>
+    <select class="auto"name="nom">
       <?php foreach ($personnes as $personne) { ?>
         <option value="<?php echo $personne->getPerNum();?>"><?php echo $personne->getPerNom(); ?></option>
       <?php } ?>
-    </select><br><br>
-    <label> Date Citation : </label>
- 		<input type="date" name="date"><br><br>
-    <label> Citation :</label><br><br>
-    <textarea name="citation" rows="6" cols="60">Ecrit ici ta citation</textarea><br>
+    </select>
+	</div>
+		<div class="row">
+    <label class="auto"> Date Citation : </label>
+ 		<input class="auto"type="date" name="date">
+		</div>
+		<div class="row">
+    <label class="auto"> Citation :</label>
+    <textarea class="auto" name="citation" rows="8">Ecrit ici ta citation</textarea>
+		</div>
     <button type="submit" name="button">Valider</button>
   </form>
 

@@ -9,8 +9,10 @@ $villeManager = new VilleManager($pdo);
 if (empty($_POST["nom"])) { ?>
 
 	<form action="#" method="post">
-		<label for="Nom">Nom</label>
-		<input type="text" name="nom" id="Nom" />
+		<div class="row">
+			<label for="Nom">Nom</label>
+			<input type="text" name="nom" id="Nom" />
+		</div>
 		<input type="submit" name="submit" value="Valider" />
 	</form>
 
