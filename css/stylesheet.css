@@ -57,23 +57,16 @@ body{
 
 #connect{
 	height:30px;
-	width:380px;
 	padding:10px;
 	position:absolute;
 	right:30px;
-	top:65%;
+	top:0%;
 	background-color:lightgrey;
-	border-radius:10px;
-	color:#222222;
+	border-radius:0px 0px 10px 10px;
 	font-size:18px;
 	text-align:center;
 }
 #connect a{
-	color:#222222;
-	font-weight:bold;
-	text-decoration: none;
-}
-#connect a :visited{
 	color:#222222;
 	font-weight:bold;
 	text-decoration: none;

@@ -15,7 +15,7 @@ class CitationManager{
   public function getList() {
           $listeCitation = array();
 
-          $sql = 'select concat(p.per_nom, p.per_prenom)
+          $sql = 'select c.cit_num, concat(p.per_nom, p.per_prenom)
           as cit_nom_enseignant, c.cit_libelle as cit_libelle,
           c.cit_date as cit_date, avg(v.vot_valeur) as cit_moyenne from citation c
           left join personne p on p.per_num = c.per_num
@@ -124,6 +124,25 @@ class CitationManager{
       $requete = $this->db->query($sql);
       $requete->execute();
       $requete->closeCursor();
+    }
+
+    public function votedBy($numEtu, $numCitation) {
+      $sql = 'select count(cit_num) as nbrCitation from vote where cit_num ='.$numCitation.' and per_num ='.$numEtu;
+      $requete = $this->db->query($sql);
+      $count = $requete->fetch();
+      $requete->closeCursor();
+      return $count['nbrCitation'];
+    }
+
+    public function vote($numEtu, $numCitation, $note) {
+      $req=$this->db->prepare(
+        'INSERT INTO vote(cit_num, per_num, vot_valeur)
+          VALUES(:citnum,:pernum,:note)');
+        $req->bindValue(':pernum',$numEtu,PDO::PARAM_INT);
+        $req->bindValue(':citnum',$numCitation,PDO::PARAM_INT);
+        $req->bindValue(':note',$note,PDO::PARAM_INT);
+
+        $req->execute();
     }
 }
 ?>
