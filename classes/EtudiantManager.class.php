@@ -38,4 +38,27 @@ class EtudiantManager{
         $req->bindValue(':divNum', $etudiant->getDivNum());
         $req->execute();
     }
+
+    public function updateEtudiant($etudiant){
+      $req = $this->db->prepare('update `etudiant` set `dep_num` = :dep_num, `div_num` = :div_num where `etudiant`.`per_num` = :num');
+      $req->bindValue(':num',$etudiant->getEtuNum(),PDO::PARAM_STR);
+      $req->bindValue(':dep_num',$etudiant->getDepNum(),PDO::PARAM_STR);
+      $req->bindValue(':div_num',$etudiant->getDivNum(),PDO::PARAM_STR);
+      $retour=$req->execute();
+    }
+
+    public function suppSal($etudiant){
+      $req = $this->db->prepare('delete from `salarie` where `salarie`.`per_num` = :per_num');
+      $req->bindValue(':per_num',$etudiant->getEtuNum(),PDO::PARAM_STR);
+      $retour=$req->execute();
+    }
+
+    public function updateSalEnEtu($etudiant){
+      $req = $this->db->prepare('insert into etudiant (per_num, dep_num, div_num) values (:per_num, :dep_num, :div_num)');
+      $req->bindValue(':per_num',$etudiant->getEtuNum(),PDO::PARAM_STR);
+      $req->bindValue(':dep_num',$etudiant->getDepNum(),PDO::PARAM_STR);
+      $req->bindValue(':div_num',$etudiant->getDivNum(),PDO::PARAM_STR);
+      $retour=$req->execute();
+    }
+
  }
