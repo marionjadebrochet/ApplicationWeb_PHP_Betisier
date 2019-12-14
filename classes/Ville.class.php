@@ -8,10 +8,10 @@ class Ville {
   // CONSTRUCTEUR
   public function __construct($ville = array()){
     if (!empty($ville))
-    //print_r ($valeurs);
-    $this->affecte($ville);
+      $this->affecte($ville);
   }
 
+  //FONCTION AFFECTE
   public function affecte($donnees){
     foreach ($donnees as $attribut => $valeur){
       switch ($attribut){

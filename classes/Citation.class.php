@@ -17,8 +17,7 @@ class Citation {
   // CONSTRUCTEUR
   public function __construct($valeurs = array()){
     if (!empty($valeurs))
-    //print_r ($valeurs);
-    $this->affecte($valeurs);
+      $this->affecte($valeurs);
   }
 
   //FONCTION AFFECTE
@@ -64,12 +63,12 @@ class Citation {
 
   public function getCitLibelle()
   {
-      return $this->cit_libelle;
+    return $this->cit_libelle;
   }
 
   public function getCitDate()
   {
-      return $this->cit_date;
+    return $this->cit_date;
   }
 
   public function getCitVal()
@@ -89,12 +88,12 @@ class Citation {
 
   public function getCitNomEnseignant()
   {
-      return $this->cit_nom_enseignant;
+    return $this->cit_nom_enseignant;
   }
 
   public function getCitMoyenne()
   {
-      return $this->cit_moyenne;
+    return $this->cit_moyenne;
   }
 
   // SETTERS
@@ -129,16 +128,16 @@ class Citation {
 
   public function setCitLibelle($cit_libelle)
   {
-      $this->cit_libelle = $cit_libelle;
+    $this->cit_libelle = $cit_libelle;
 
-      return $this;
+    return $this;
   }
 
   public function setCitDate($cit_date)
   {
-      $this->cit_date = $cit_date;
+    $this->cit_date = $cit_date;
 
-      return $this;
+    return $this;
   }
 
   public function setCitVal($citVal)
@@ -164,15 +163,15 @@ class Citation {
 
   public function setCitNomEnseignant($cit_nom_enseignant)
   {
-      $this->cit_nom_enseignant = $cit_nom_enseignant;
+    $this->cit_nom_enseignant = $cit_nom_enseignant;
 
-      return $this;
+    return $this;
   }
 
   public function setCitMoyenne($cit_moyenne)
   {
-      $this->cit_moyenne = $cit_moyenne;
+    $this->cit_moyenne = $cit_moyenne;
 
-      return $this;
+    return $this;
   }
 }

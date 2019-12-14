@@ -10,7 +10,6 @@ class VilleManager{
   }
 
   // FONCTIONS
-
   //fonction qui retourne un tableau d'objet ville.
   public function getList() {
     $listeVilles = array();
@@ -54,11 +53,11 @@ class VilleManager{
   public function delete($ville) {
     $req = $this->db->prepare('delete from ville where vil_num ='. $ville);
     $req->execute();
-    }
+  }
 
-    //fonction pour modifier une ville
-    public function update($ville, $nomVille) {
-      $req = $this->db->prepare('update ville set vil_nom ="' . $nomVille .'" where vil_num ='. $ville);
-      $req->execute();
-    }
+  //fonction pour modifier une ville
+  public function update($ville, $nomVille) {
+    $req = $this->db->prepare('update ville set vil_nom ="' . $nomVille .'" where vil_num ='. $ville);
+    $req->execute();
+  }
 }?>
