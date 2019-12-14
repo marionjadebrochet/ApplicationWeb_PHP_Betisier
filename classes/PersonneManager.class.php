@@ -84,16 +84,18 @@ class PersonneManager{
 
       //fonction pour supprimer une ville
       public function delete($personne) {
-        $req = $this->db->prepare('delete from vote where per_num ='. $personne);
-        $req->execute();
-        $req = $this->db->prepare('delete from citation where per_num ='. $personne);
-        $req->execute();
-        $req = $this->db->prepare('delete from salarie where per_num ='. $personne);
-        $req->execute();
-        $req = $this->db->prepare('delete from etudiant where per_num ='. $personne);
-        $req->execute();
-        $req = $this->db->prepare('delete from personne where per_num ='. $personne);
-        $req->execute();
+        $req1 = $this->db->prepare('delete from vote where per_num ='. $personne);
+        $req1->execute();
+        $req2 = $this->db->prepare('delete from citation where per_num ='. $personne);
+        $req2->execute();
+        $req3 = $this->db->prepare('delete from citation where per_num_etu='. $personne);
+        $req3->execute();
+        $req4 = $this->db->prepare('delete from salarie where per_num ='. $personne);
+        $req4->execute();
+        $req5 = $this->db->prepare('delete from etudiant where per_num ='. $personne);
+        $req5->execute();
+        $req6 = $this->db->prepare('delete from personne where per_num ='. $personne);
+        $req6->execute();
         }
 
         public function isEtudiant($num) {

@@ -47,9 +47,9 @@ class EtudiantManager{
       $retour=$req->execute();
     }
 
-    public function suppSal($etudiant){
-      $req = $this->db->prepare('delete from `salarie` where `salarie`.`per_num` = :per_num');
-      $req->bindValue(':per_num',$etudiant->getEtuNum(),PDO::PARAM_STR);
+    public function suppEtu($numero){
+      $req = $this->db->prepare('delete from `etudiant` where `etudiant`.`per_num` = :numero');
+      $req->bindValue(':numero',$numero,PDO::PARAM_STR);
       $retour=$req->execute();
     }
 
@@ -60,5 +60,6 @@ class EtudiantManager{
       $req->bindValue(':div_num',$etudiant->getDivNum(),PDO::PARAM_STR);
       $retour=$req->execute();
     }
+
 
  }
