@@ -40,7 +40,7 @@ if((empty($_POST['anneeEtu'])) && (empty($_POST['telSal'])) && empty($_POST["pre
     <label>Login :</label>
     <input type="text" name="login" value=<?php echo $personne->getPerLogin();?>> <br>
     <label for="Motdepasse">Mot de passe :</label>
-    <input type="password" name="mdp" id="Motdepasse" value=""/> <br>
+    <input type="password" name="mdp" required/> <br>
     <label>Catégorie : </label>
     <?php if ($_SESSION['etudiant'] == 1){ ?>
       <input type="radio" name="categorie" id="Etudiant" value="etudiant" checked/> Etudiant
@@ -59,13 +59,14 @@ if((empty($_POST['anneeEtu'])) && (empty($_POST['telSal'])) && empty($_POST["pre
   }
   if(!empty($_POST) && empty($_POST["anneeEtu"]) && empty($_POST["telSal"]))
   {
-    $_SESSION['personne'] = serialize(new Personne(array ('per_nom' => $_POST['nom'],
-    'per_prenom' => $_POST['prenom'],
-    'per_tel' => $_POST['tel'],
-    'per_mail' => $_POST['mail'],
-    'per_login' => $_POST['login'],
-    'per_pwd' => $_POST['mdp'])));
-
+    $salt="48@!alsd";
+  	$pwd_crypte = sha1(sha1($_POST['mdp']).$salt);
+  	$_SESSION['personne'] = serialize(new Personne(array ('per_nom' => $_POST['nom'],
+  	'per_prenom' => $_POST['prenom'],
+  	'per_tel' => $_POST['tel'],
+  	'per_mail' => $_POST['mail'],
+  	'per_login' => $_POST['login'],
+  	'per_pwd' => $pwd_crypte)));
   }
   //PARTIE CONCERNANT LA SELECTION ETUDIANT
   if ($_SESSION['etudiant'] == 1) {

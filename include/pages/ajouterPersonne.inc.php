@@ -59,12 +59,14 @@ if (empty($_POST["nom"]) && empty($_POST["dep"]) && empty($_POST['annee']) && em
 <?php }
 
 if(!empty($_POST["nom"]) && $_POST['categorie'] == "etudiant") {
+	$salt="48@!alsd";
+	$pwd_crypte = sha1(sha1($_POST['mdp']).$salt);
 	$_SESSION['personne'] = serialize(new Personne(array ('per_nom' => $_POST['nom'],
 	'per_prenom' => $_POST['prenom'],
 	'per_tel' => $_POST['tel'],
 	'per_mail' => $_POST['mail'],
 	'per_login' => $_POST['login'],
-	'per_pwd' => $_POST['mdp'])));?>
+	'per_pwd' => $pwd_crypte)));?>
 
 	<h1>Ajouter un étudiant</h1>
 
@@ -111,13 +113,15 @@ if(empty($_POST['categorie']) && !empty($_POST['annee'])) {
 }
 
 if (!empty($_POST["nom"]) && $_POST['categorie'] == "salarie") {
+	$salt="48@!alsd";
+	$pwd_crypte = sha1(sha1($_POST['mdp']).$salt);
 	$_SESSION['personne'] = serialize(new Personne(array ('per_nom' => $_POST['nom'],
 	'per_prenom' => $_POST['prenom'],
 	'per_tel' => $_POST['tel'],
 	'per_mail' => $_POST['mail'],
 	'per_login' => $_POST['login'],
-	'per_pwd' => $_POST['mdp'])));?>
-
+	'per_pwd' => $pwd_crypte)));?>
+	
 	<h1>Ajouter une salarié</h1>
 
 	<form action="#" method="post">
