@@ -27,5 +27,7 @@ if (empty($_GET['numero'])) {
 	$personne = $_GET['numero'];
 	$personneManager->delete($personne);
 	echo 'La personne a été supprimée';
+	echo "Redirection automatique dans 2 secondes";
+	header("Refresh:2; url=index.php?page=0");
 
 }?>

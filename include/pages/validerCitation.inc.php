@@ -27,7 +27,7 @@
 
   $citationManager->validerCitation($_GET['numero']);
   echo "Citation validée";
-
-
+	echo "Redirection automatique dans 2 secondes";
+	header("Refresh:2; url=index.php?page=0");
 
 } ?>

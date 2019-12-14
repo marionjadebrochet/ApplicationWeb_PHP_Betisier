@@ -101,8 +101,12 @@ if(empty($_POST['categorie']) && !empty($_POST['annee'])) {
 
 	if($result == 0) {
 		echo "L'étudiant à bien été ajouté";
+		echo "Redirection automatique dans 2 secondes";
+    header("Refresh:2; url=index.php?page=0");
 	} else {
 		echo "Erreur";
+		echo "Redirection automatique dans 2 secondes";
+    header("Refresh:2; url=index.php?page=0");
 	}
 }
 
@@ -144,8 +148,12 @@ if(empty($_POST['categorie']) && !empty($_POST['tel'])) {
 
 	if($result == 0) {
 		echo "Le salarié à bien été ajouté";
+		echo "Redirection automatique dans 2 secondes";
+    header("Refresh:2; url=index.php?page=0");
 	} else {
 		echo "Erreur";
+		echo "Redirection automatique dans 2 secondes";
+    header("Refresh:2; url=index.php?page=0");
 	}
 }
 ?>

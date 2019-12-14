@@ -27,5 +27,7 @@ if (empty($_GET['numero'])) {
   $ville = $_GET['numero'];
   $villeManager->delete($ville);
   echo 'La ville a été supprimée';
+	echo "Redirection automatique dans 2 secondes";
+	header("Refresh:2; url=index.php?page=0");
 
 }?>

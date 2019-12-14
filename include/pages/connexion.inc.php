@@ -10,13 +10,19 @@ $rand2 = rand(1,20);
 <?php if(empty($_POST['nom']) || empty($_POST['mdp'])) { ?>
 
 <form action="#" method="post">
-  <label for="Nom">Nom d'utilisateur :</label>
-  <input type="text" name="nom"> <br>
-  <label for="mdp">Mot de passe : </label>
-  <input type="password" name="mdp"> <br>
-  <input type="text" name="rand1" value="<?php echo $rand1 ?>"> +
-  <input type="text" name="rand2" value="<?php echo $rand2 ?>"> =
-  <input type="number" name="res" value=""> <br>
+  <div class="row">
+    <label class="auto" for="Nom">Nom d'utilisateur :</label>
+    <input class="auto" type="text" name="nom">
+  </div>
+  <div class="row">
+    <label class="auto" for="mdp">Mot de passe : </label>
+    <input class="auto" type="password" name="mdp">
+  </div>
+  <div class="row">
+    <input type="text" name="rand1" value="<?php echo $rand1 ?>"> +
+    <input type="text" name="rand2" value="<?php echo $rand2 ?>"> =
+    <input type="number" name="res" value="">
+  </div>
   <input type="submit" name="valider" value="valider">
 </form>
 

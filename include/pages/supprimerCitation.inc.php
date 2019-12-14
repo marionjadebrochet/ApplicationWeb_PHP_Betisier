@@ -27,5 +27,7 @@
 
   $citationManager->supprimerCitation($_GET['numero']);
   echo "Citation supprimée";
+	echo "Redirection automatique dans 2 secondes";
+	header("Refresh:2; url=index.php?page=0");
 
 } ?>
