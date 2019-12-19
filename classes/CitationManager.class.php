@@ -144,5 +144,13 @@ class CitationManager{
 
         $req->execute();
     }
+
+    public function isValide($citation) {
+      $sql = 'select mot_interdit from mot where match(mot_interdit) against (\''.$citation.'\')';
+      $requete = $this->db->query($sql);
+      $mots = $requete->fetch(PDO::PARAM_STR);
+      $requete->closeCursor();
+      return $mots['mot_interdit'];
+    }
 }
 ?>
