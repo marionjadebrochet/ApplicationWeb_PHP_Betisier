@@ -10,12 +10,10 @@ class Etudiant {
   private $depNom;
   private $vilNom;
 
-
   // CONSTRUCTEUR
   public function __construct($valeurs = array()) {
     if (!empty($valeurs))
-    //print_r ($valeurs);
-    $this->affecte($valeurs);
+      $this->affecte($valeurs);
   }
 
   //FONCTION AFFECTE

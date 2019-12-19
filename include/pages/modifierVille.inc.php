@@ -26,17 +26,17 @@ if (empty($_GET['numero'])) {
   <br />
 
 <?php } else {
-      if (empty($_POST['nom'])) { ?>
+  if (empty($_POST['nom'])) { ?>
 
-      <form action="#" method="post">
-        <div class="row">
-          <label for="Nom">Nom :</label>
-          <input type="text" name="nom" id="nom" />
-        </div>
-        <input type="submit" name="submit" value="Valider" />
-      </form>
+    <form action="#" method="post">
+      <div class="row">
+        <label for="Nom">Nom :</label>
+        <input type="text" name="nom" id="nom" />
+      </div>
+      <input type="submit" name="submit" value="Valider" />
+    </form>
 
-<?php } else {
+  <?php } else {
 
     $nomVille = $_POST['nom'];
     $ville = $_GET['numero'];

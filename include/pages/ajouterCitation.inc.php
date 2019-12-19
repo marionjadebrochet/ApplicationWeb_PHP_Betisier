@@ -34,15 +34,23 @@
   </form>
 
 <?php } else {
-	$dateDep =  date("Y-m-d H:i:s");
-	$citation = new Citation (array('per_num' => $_POST['nom'],
-																	'per_num_etu' => $_SESSION['num'],
-								 									'cit_libelle' => $_POST['citation'],
-							 	 									'cit_date' => $_POST['date'],
-							   									'cit_date_depo' => $dateDep,));
+ 	$tab = $citationManager->isValide($_POST['citation']);
+	echo $tab;
 
-  $citationManager->add($citation);
-  echo "La citation a été ajouté";
-	echo "Redirection automatique dans 2 secondes";
-	header("Refresh:2; url=index.php?page=0");
+	$nouvCitation = str_replace($tab,"---",mb_strtolower($_POST['citation']));
+
+	echo $nouvCitation;
+
+
+	/*	$dateDep =  date("Y-m-d H:i:s");
+		$citation = new Citation (array('per_num' => $_POST['nom'],
+																		'per_num_etu' => $_SESSION['num'],
+									 									'cit_libelle' => $_POST['citation'],
+								 	 									'cit_date' => $_POST['date'],
+								   									'cit_date_depo' => $dateDep,));
+	  $citationManager->add($citation);
+	  echo "La citation a été ajouté";
+		echo "Redirection automatique dans 2 secondes"; */
+
+
 } ?>

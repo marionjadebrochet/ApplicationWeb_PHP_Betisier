@@ -79,6 +79,10 @@ $personneManager = new PersonneManager($db);
 		case 16:
 			include("pages/deconnexion.inc.php");
 			break;
+		case 17:
+		if ($_SESSION['estAdmin'] == 1) {
+		include("pages/modifierPersonneBis.inc.php"); }
+		break;
 		default : include_once('pages/accueil.inc.php');
 }?>
 </div>

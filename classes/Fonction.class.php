@@ -7,21 +7,20 @@ class Fonction {
 
   // CONSTRUCTEUR
   public function __construct($fonc = array()){
-  	if (!empty($fonc))
-  			//print_r ($valeurs);
-  			 $this->affecte($fonc);
+    if (!empty($fonc))
+    $this->affecte($fonc);
   }
 
   public function affecte($donnees){
-       foreach ($donnees as $attribut => $valeur){
-           switch ($attribut){
-               case 'fon_num': $this->setFonNum($valeur);
-               break;
-               case 'fon_libelle': $this->setFonLib($valeur);
-               break;
-           }
-       }
-   }
+    foreach ($donnees as $attribut => $valeur){
+      switch ($attribut){
+        case 'fon_num': $this->setFonNum($valeur);
+        break;
+        case 'fon_libelle': $this->setFonLib($valeur);
+        break;
+      }
+    }
+  }
 
   // GETTERS
   public function getFonNum()
@@ -35,19 +34,15 @@ class Fonction {
   }
 
   // SETTERS
-
   public function setFonNum($num)
   {
     $this->num = $num;
-
     return $this;
   }
 
   public function setFonLib($libelle)
   {
     $this->libelle = $libelle;
-
     return $this;
   }
-
 }

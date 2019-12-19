@@ -7,21 +7,20 @@ class Division {
 
   // CONSTRUCTEUR
   public function __construct($div = array()){
-  	if (!empty($div))
-  			//print_r ($valeurs);
-  			 $this->affecte($div);
+    if (!empty($div))
+      $this->affecte($div);
   }
 
   public function affecte($donnees){
-       foreach ($donnees as $attribut => $valeur){
-           switch ($attribut){
-               case 'div_num': $this->setDivNum($valeur);
-               break;
-               case 'div_nom': $this->setDivNom($valeur);
-               break;
-           }
-       }
-   }
+    foreach ($donnees as $attribut => $valeur){
+      switch ($attribut){
+        case 'div_num': $this->setDivNum($valeur);
+        break;
+        case 'div_nom': $this->setDivNom($valeur);
+        break;
+      }
+    }
+  }
 
   // GETTERS
   public function getDivNum()
@@ -49,5 +48,4 @@ class Division {
 
     return $this;
   }
-
 }
