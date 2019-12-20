@@ -59,7 +59,7 @@ if(empty($_GET['numero']) && empty($_POST['note'])) {
 
 	$resultat = $citationManager->vote($_SESSION['num'], $_SESSION['numero'],$_POST['note']);
 
-	echo "La citation a été notée";
+	echo "La citation a été notée  <br>";
 	echo "Redirection automatique dans 2 secondes";
 	header("Refresh:2; url=index.php?page=0");
 			}?>

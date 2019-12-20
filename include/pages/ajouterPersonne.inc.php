@@ -102,11 +102,11 @@ if(empty($_POST['categorie']) && !empty($_POST['annee'])) {
 	$result = $etudiantManager->addEtudiant($etudiant);
 
 	if($result == 0) {
-		echo "L'étudiant à bien été ajouté";
+		echo "L'étudiant à bien été ajouté <br>";
 		echo "Redirection automatique dans 2 secondes";
     header("Refresh:2; url=index.php?page=0");
 	} else {
-		echo "Erreur";
+		echo "Erreur <br>";
 		echo "Redirection automatique dans 2 secondes";
     header("Refresh:2; url=index.php?page=0");
 	}
@@ -121,7 +121,7 @@ if (!empty($_POST["nom"]) && $_POST['categorie'] == "salarie") {
 	'per_mail' => $_POST['mail'],
 	'per_login' => $_POST['login'],
 	'per_pwd' => $pwd_crypte)));?>
-	
+
 	<h1>Ajouter une salarié</h1>
 
 	<form action="#" method="post">
@@ -151,11 +151,11 @@ if(empty($_POST['categorie']) && !empty($_POST['tel'])) {
 	$result = $salarieManager->addSalarie($salarie);
 
 	if($result == 0) {
-		echo "Le salarié à bien été ajouté";
+		echo "Le salarié à bien été ajouté <br>";
 		echo "Redirection automatique dans 2 secondes";
     header("Refresh:2; url=index.php?page=0");
 	} else {
-		echo "Erreur";
+		echo "Erreur <br>";
 		echo "Redirection automatique dans 2 secondes";
     header("Refresh:2; url=index.php?page=0");
 	}
