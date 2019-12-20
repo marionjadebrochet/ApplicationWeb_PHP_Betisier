@@ -29,7 +29,7 @@ $personneManager = new PersonneManager($db);
 			break;
 		case 3:
 			if ($_SESSION['estAdmin'] == 1) {
-			include("pages/ModifierPersonne.inc.php"); }
+			include("pages/modifierPersonne.inc.php"); }
 			break;
 		case 4:
 			if ($_SESSION['estEtu'] == 1 ) {

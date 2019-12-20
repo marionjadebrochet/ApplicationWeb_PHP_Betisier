@@ -138,7 +138,6 @@ if((empty($_POST['anneeEtu'])) && (empty($_POST['telSal'])) && empty($_POST["pre
 //NE PASSSE PAS DANS CETTE BOUCLE C4ETAIT PAS CA LERREUR CEST LA CONDITION
       } else {
         $salarie = new Salarie(array('per_num' => $_GET["numero"], 'sal_telprof' => $_POST['telSal'], 'fon_num' => $_POST['fon']));
-        print_r($salarie);
         $salarieManager->updateEtuEnSalarie($salarie);
 
         ?><p> L'étudiant à bien été modifié,et c'est devenu un salarié</p><?php

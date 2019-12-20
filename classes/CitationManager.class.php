@@ -149,8 +149,6 @@ class CitationManager{
 
         $req->execute();
       }
-    }
-<<<<<<< HEAD
 
     public function isValide($citation) {
       $sql = 'select mot_interdit from mot where match(mot_interdit) against (\''.$citation.'\')';
@@ -161,6 +159,3 @@ class CitationManager{
     }
 }
 ?>
-=======
-    ?>
->>>>>>> 9dad2d2ae871e2ddece5602ca86f558efc9acaa8
