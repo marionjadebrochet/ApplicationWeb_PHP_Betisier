@@ -141,8 +141,8 @@ class CitationManager{
 
     public function vote($numEtu, $numCitation, $note) {
       $req=$this->db->prepare(
-        'INSERT INTO vote(cit_num, per_num, vot_valeur)
-        VALUES(:citnum,:pernum,:note)');
+        'insert into vote(cit_num, per_num, vot_valeur)
+        values(:citnum,:pernum,:note)');
         $req->bindValue(':pernum',$numEtu,PDO::PARAM_INT);
         $req->bindValue(':citnum',$numCitation,PDO::PARAM_INT);
         $req->bindValue(':note',$note,PDO::PARAM_INT);
@@ -150,12 +150,18 @@ class CitationManager{
         $req->execute();
       }
 
-    public function isValide($citation) {
-      $sql = 'select mot_interdit from mot where match(mot_interdit) against (\''.$citation.'\')';
-      $requete = $this->db->query($sql);
-      $mots = $requete->fetch(PDO::PARAM_STR);
-      $requete->closeCursor();
-      return $mots['mot_interdit'];
+    public function isValide($mot) {
+      $req = $this->db->prepare('select count(*) as nb from (select mot_interdit ,
+                                 match (mot_interdit)
+                                 against (:mot)
+                                 as pertinence from mot
+                                 where match (mot_interdit)
+                                 against (:mot))t');
+       $req->bindValue(':mot',$mot,PDO::PARAM_STR);
+       $req->execute();
+       $retour = $req->fetch();
+       return $retour["nb"];
     }
+
 }
 ?>
