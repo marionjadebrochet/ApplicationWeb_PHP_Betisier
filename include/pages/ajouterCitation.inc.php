@@ -10,20 +10,23 @@
 empty($_POST["citation"]) ) { ?>
 
 	<form name="ajCitation" id="ajCitation" action="#" method="post" >
-
-    <label>Enseignant : </label>
-    <select class="champ" id="enseignant" name="enseignant" required>
-      <?php
-			foreach ($personnes as $personne) { ?>
-				<option value="<?php echo $personne->getPerNum();?>"><?php echo $personne->getPerNom(); ?></option>
-			<?php } ?>
-      </select>
-
-		<label> Date citation : </label>
-		<input type="date" size = 30 maxlength = 50 name="date" required>
-    <label> Citation : </label>
-		<textarea rows="3" size="30" name="citation" required></textarea>
-
+		<div class="row">
+	    <label class="auto">Enseignant : </label>
+	    <select class="champ auto" id="enseignant" name="enseignant" required>
+	      <?php
+				foreach ($personnes as $personne) { ?>
+					<option value="<?php echo $personne->getPerNum();?>"><?php echo $personne->getPerNom(); ?></option>
+				<?php } ?>
+	      </select>
+		</div>
+		<div class="row">
+			<label class="auto"> Date citation : </label>
+			<input class="auto" type="date" size = 30 maxlength = 50 name="date" required>
+		</div>
+		<div class="row">
+	    <label class="auto"> Citation : </label>
+			<textarea class="auto" rows="3" size="30" name="citation" required></textarea>
+		</div>
 		<input type=submit value="Valider">
 	</form>
 
@@ -43,26 +46,32 @@ empty($_POST["citation"]) ) { ?>
   if ($citationCorrigee != $_POST["citation"]." " ) {?>
 
   <form name="ajCitation" id="ajCitation" action="#" method="post" >
-
-    <label>Enseignant : </label>
-		<select class="champ" id="enseignant" name="enseignant" required>
+		<div class="row">
+    <label class="auto">Enseignant : </label>
+		<select class="champ auto" id="enseignant" name="enseignant" required>
       <?php
 			foreach ($personnes as $personne) { ?>
 				<option value="<?php echo $personne->getPerNum();?>"><?php echo $personne->getPerNom(); ?></option>
 			<?php } ?>
       </select>
-
-		<label> Date Citation : </label>
-		<input type="date" size = 30 maxlength = 50 name="date" value="<?php echo $_POST["date"]; ?>">
-		<label> Citation : </label>
-		<textarea rows="3" cols="30" name="citation" ><?php echo $citationCorrigee; ?></textarea>
+		</div>
+		<div class="row">
+		<label class="auto"> Date Citation : </label>
+		<input class="auto" type="date" size = 30 maxlength = 50 name="date" value="<?php echo $_POST["date"]; ?>">
+	</div>
+		<div class="row">
+		<label class="auto"> Citation : </label>
+		<textarea class="auto" rows="3" cols="30" name="citation" ><?php echo $citationCorrigee; ?></textarea>
+	</div>
 <?php
 		$iterateur = 0;
 			 while (!empty($citation[$iterateur]))  {
 				 $mot = $citation[$iterateur];
-				 if ( $citationManager->isValide($mot) ) {
-					echo '<img class = "icone" src="image/erreur.png" alt="ajCitation"/> Le mot : <label style="color : red;">'.$mot.'</label> n\'est pas autorisé<br />';
-				 }
+				 if ( $citationManager->isValide($mot) ) { ?>
+					 <div class="row">
+					<?php echo '<img class = "icone" src="image/erreur.png" alt="ajCitation"/> Le mot : <label style="color : red;">'.$mot.'</label>n\'est pas autorisé<br />';
+					?> </div>
+				<?php }
 				 $iterateur++;
 			 }
 			 ?>
