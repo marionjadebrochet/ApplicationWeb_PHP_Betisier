@@ -1,4 +1,4 @@
-<?php
+  <?php
 class Citation {
 
   // ATTRIBUTS
@@ -35,7 +35,6 @@ class Citation {
         case 'cit_date_depo': $this->setCitDateDep($valeur); break;
         case 'cit_nom_enseignant': $this->setCitNomEnseignant($valeur); break;
         case 'cit_moyenne': $this->setCitMoyenne($valeur); break;
-
       }
     }
   }

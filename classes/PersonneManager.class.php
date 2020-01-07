@@ -10,7 +10,7 @@ class PersonneManager{
   }
 
   // FONCTIONS
-  
+
   //fonction qui retourne un tableau d'objet personne.
   public function getList() {
     $listePersonne = array();
@@ -41,7 +41,7 @@ class PersonneManager{
 
   //fonction qui retourne le nombre de personne
   public function countPersonne() {
-    $sql = 'select count(per_num) as nbrpersonne from PERSONNE';
+    $sql = 'select count(per_num) as nbrpersonne from personne';
     $requete = $this->db->query($sql);
     $count = $requete->fetch();
     $requete->closeCursor();
@@ -51,8 +51,8 @@ class PersonneManager{
   //fonction qui permet d'ajouter une personne
   public function addPersonne($personne) {
     $req = $this->db->prepare(
-      'INSERT INTO PERSONNE (per_admin, per_nom, per_prenom, per_tel, per_mail, per_login, per_pwd)
-      VALUES (:admin, :nom, :prenom, :tel, :mail, :login, :pwd)');
+      'insert into personne (per_admin, per_nom, per_prenom, per_tel, per_mail, per_login, per_pwd)
+      values (:admin, :nom, :prenom, :tel, :mail, :login, :pwd)');
       $req->bindValue(':nom', $personne->getPerNom());
       $req->bindValue(':prenom', $personne->getPerPrenom());
       $req->bindValue(':tel', $personne->getPerTel());

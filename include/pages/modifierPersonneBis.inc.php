@@ -22,7 +22,7 @@ while ($listePersonne[$iterateur]->getPerNum() != $_GET["numero"] ) {
 $personne = $listePersonne[$iterateur];
 
 if((empty($_POST['anneeEtu'])) && (empty($_POST['telSal'])) && empty($_POST["prenom"])) {
-   $estEtudiant = $personneManager->isEtudiant($_GET["numero"]);
+  $estEtudiant = $personneManager->isEtudiant($_GET["numero"]);
   $_SESSION['etudiant'] = $estEtudiant;
   ?>
 
@@ -60,13 +60,13 @@ if((empty($_POST['anneeEtu'])) && (empty($_POST['telSal'])) && empty($_POST["pre
   if(!empty($_POST) && empty($_POST["anneeEtu"]) && empty($_POST["telSal"]))
   {
     $salt="48@!alsd";
-  	$pwd_crypte = sha1(sha1($_POST['mdp']).$salt);
-  	$_SESSION['personne'] = serialize(new Personne(array ('per_nom' => $_POST['nom'],
-  	'per_prenom' => $_POST['prenom'],
-  	'per_tel' => $_POST['tel'],
-  	'per_mail' => $_POST['mail'],
-  	'per_login' => $_POST['login'],
-  	'per_pwd' => $pwd_crypte)));
+    $pwd_crypte = sha1(sha1($_POST['mdp']).$salt);
+    $_SESSION['personne'] = serialize(new Personne(array ('per_nom' => $_POST['nom'],
+    'per_prenom' => $_POST['prenom'],
+    'per_tel' => $_POST['tel'],
+    'per_mail' => $_POST['mail'],
+    'per_login' => $_POST['login'],
+    'per_pwd' => $pwd_crypte)));
   }
   //PARTIE CONCERNANT LA SELECTION ETUDIANT
   if ($_SESSION['etudiant'] == 1) {
@@ -99,11 +99,12 @@ if((empty($_POST['anneeEtu'])) && (empty($_POST['telSal'])) && empty($_POST["pre
       <?php }else{ ?>
         <?php
         $etudiant = new Etudiant(array('per_num' => $_GET["numero"], 'dep_num' => $_POST['dep'],'div_num' => $_POST['anneeEtu']));
-        $etudiantManager->updateEtudiant($etudiant);?>
-
-        <p> L'étudiant à bien été modifié </p>
-      <?php } ?>
-    <?php }else{
+        $etudiantManager->updateEtudiant($etudiant);
+        echo "L'étudiant a été modifiée  <br>";
+        echo "Redirection automatique dans 2 secondes";
+        header("Refresh:2; url=index.php?page=0");
+      } ?>
+    <?php } else {
 
       if (!empty($_POST["categorie"]))
       {
@@ -135,13 +136,14 @@ if((empty($_POST['anneeEtu'])) && (empty($_POST['telSal'])) && empty($_POST["pre
         </form>
 
         <?php
-//NE PASSSE PAS DANS CETTE BOUCLE C4ETAIT PAS CA LERREUR CEST LA CONDITION
+        //NE PASSSE PAS DANS CETTE BOUCLE C4ETAIT PAS CA LERREUR CEST LA CONDITION
       } else {
         $salarie = new Salarie(array('per_num' => $_GET["numero"], 'sal_telprof' => $_POST['telSal'], 'fon_num' => $_POST['fon']));
-        print_r($salarie);
         $salarieManager->updateEtuEnSalarie($salarie);
 
-        ?><p> L'étudiant à bien été modifié,et c'est devenu un salarié</p><?php
+        echo "L'étudiant à bien été modifié,et c'est devenu un salarié <br>";
+        echo "Redirection automatique dans 2 secondes";
+        header("Refresh:2; url=index.php?page=0");
       }  ?>
     <?php }
 
@@ -178,7 +180,10 @@ if((empty($_POST['anneeEtu'])) && (empty($_POST['telSal'])) && empty($_POST["pre
         $salarie = new Salarie(array('per_num' => $_GET["numero"], 'sal_telprof' => $_POST['telSal'], 'fon_num' => $_POST['fon']));
         $salarieManager->updateSalarie($salarie);
 
-        ?>  <p> Le salarié à bien été modifié</p> <?php
+        echo "Le salarié à bien été modifié<br>";
+        echo "Redirection automatique dans 2 secondes";
+        header("Refresh:2; url=index.php?page=0");
+
       }
       ?>
     <?php }else{
@@ -222,11 +227,11 @@ if((empty($_POST['anneeEtu'])) && (empty($_POST['telSal'])) && empty($_POST["pre
         $etudiant = new Etudiant(array('per_num' => $_GET["numero"], 'dep_num' => $_POST['dep'],'div_num' => $_POST['anneeEtu']));
         $etudiantManager->updateSalEnEtu($etudiant);
 
-        ?>  <p> Le salarié à bien été modifié, et c'est devenu un étudiant</p> <?php
+        echo "Le salarié à bien été modifié, et c'est devenu un étudiant <br>";
+        echo "Redirection automatique dans 2 secondes";
+        header("Refresh:2; url=index.php?page=0");
+
       }
-      ?>
-
-
-    <?php }
+    }
   }
 } ?>
