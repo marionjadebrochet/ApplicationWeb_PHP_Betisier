@@ -1,12 +1,13 @@
 <?php
 	$pdo=new Mypdo();
-	$personneManger = new PersonneManager($pdo);
+	$personneManager = new PersonneManager($pdo);
 	$salarieManager = new SalarieManager($pdo);
-	$etudiantManger = new EtudiantManager($pdo);
+	$etudiantManager = new EtudiantManager($pdo);
 	$salarie=$salarieManager->getListSal($_GET["per_num"]);
-	$etudiant=$etudiantManger->getListEtu($_GET["per_num"]);
+	$etudiant=$etudiantManager->getListEtu($_GET["per_num"]);
+	$personne=$personneManager->getList($_GET["per_num"]);
 
-  if ($personneManger->estSalarie($_GET["per_num"])) {
+  if ($personneManager->estSalarie($_GET["per_num"])) {
 ?>
 
 <div class="titre">
