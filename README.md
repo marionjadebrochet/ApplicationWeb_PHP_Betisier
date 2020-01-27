@@ -1,4 +1,11 @@
-# Structure de base pour l'application Bétisier de l'IUT du Limousin en PHP <br />
+## Projet dans le cadre de l'IUT du Limousin
+<br />
+
+# Réalisation d'une application WEB en PHP.
+<br />
+
+
+Structure de base pour l'application Bétisier de l'IUT du Limousin en PHP <br />
 <br />
 
 Le fichier config.inc.php contient les paramètres pour la base MySQL <br /> </br>
